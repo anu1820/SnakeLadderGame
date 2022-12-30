@@ -15,6 +15,10 @@ namespace SnakeladderGame
 
             Player1 = position;
             Console.WriteLine("Player 1 Position is (Player 1)");
+
+            Random random = new Random();
+            int dice = random.Next(6);
+            Console.WriteLine(" The Player One Rolls the Dice and get Position : (dice) ");
         }
     }
 }

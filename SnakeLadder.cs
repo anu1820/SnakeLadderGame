@@ -10,15 +10,61 @@ namespace SnakeladderGame
     {
         public static void Startgame()
         {
-            int position = 0;
-            int Player1;
+            int Player_Position = 0;
+            int Previous_Player_Position = 0;
+            int Next_Player_Position = 0;
+            int Start_Position = 0;
+            int End_Position = 100;
+            int RanNum;
 
-            Player1 = position;
-            Console.WriteLine("Player 1 Position is (Player 1)");
+            void RollDice()
+            {
+                Random random = new Random();
+                RanNum = random.Next(6);
 
-            Random random = new Random();
-            int dice = random.Next(6);
-            Console.WriteLine(" The Player One Rolls the Dice and get Position : (dice) ");
+                Choose_Option();
+            }
+             void Choose_Option()
+            {
+                int Option_One_NoPlay = 0;
+                int Option_Two_Ladder = 1;
+                int Option_Three_Snake = 2;
+
+                Random ran = new Random();
+                int Choose_Option = ran.Next(3);
+
+                if (Choose_Option == Option_One_NoPlay)
+                {
+                    Player_Position = Previous_Player_Position;
+
+                    RollDice();
+                }
+
+                else if (Choose_Option == Option_Two_Ladder)
+                {
+                    Next_Player_Position = (Previous_Player_Position + RanNum);
+                }
+                else
+                {
+                    Next_Player_Position = (Previous_Player_Position - RanNum);
+                }
+            }
+
+            while (Player_Position >= Start_Position && Player_Position <= End_Position)
+            {
+                RollDice();
+            }
+
         }
+
+
+
     }
+
+
 }
+
+            
+           
+    
+
